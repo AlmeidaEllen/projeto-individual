@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="imgs/pizza.png">
+
+    <title>Fabulosa</title>
+
+</head>
+
+<body>
+    <div class="home" id="home">
+        <div class="header" id="header">
+            <div class="container">
+                <img class="logo" src="imgs/logo.png" alt="Logo da Pizzaria Fabulosa">
+                <h1 class="titulo estilo">Pizzaria Fabulosa</h1>
+
+                <ul class="navbar">
+                    <li><a href="#pizzaria"> A Pizzaria </a></li>
+                    <li><a href="#cardápio">Cardápio</a></li>
+                    <li><a href="#localização">Localização</a></li>
+                    <li>
+                        <a href="./login.html">
+                            <div class="btnNavLogin" id="login"><span>Login</span></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cadastro.html">
+                            <div class="btnNavCadastro" id="cadastro"><span>Cadastro</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <p class="bemVindo estilo" id="bemVindo">Seja Bem Vindo a<br><b>Fabulosa!</b></p>
+            <p class="subtitulo">A melhor pizzaria da<br> região de Itaquera.</p>
+
+            <a href="#pizzaria">
+                <div class="saibaMais">Saiba Mais</div>
+            </a>
+        </div>
+    </div> 
+
+
+
+    <div class="sobre" id="sobre">
+        <div class="container">
+            <h1 class="letras">A Pizzaria Fabulosa</h1>
+            <div class="horizontal">
+                <div class="textos">
+                    <h1 class="frase">História</h1>
+                    <p class="descricao">Inaguramos no dia 09 de abril de 2002, na região de Itaquera - São Paulo. Na
+                        Fabulosa, queremos que você tenha a melhor experiência ao apreciar todo
+                        o sabor de uma verdadeira pizza.
+                        <br><br> Tradição e qualidade que se iniciam desde a
+                        escolha minuciosa dos ingredientes, incluindo o preparo da massa, forno à lenha e ambiente para
+                        família e amigos. Considerada uma das melhores pizzarias da região.
+                    </p>
+                </div>
+                <img class="pizza" src="imgs/contexto.jpg" alt="Foto de pizza">
+            </div>
+        </div>
+    </div>
+
+
+   <div class="cardapio">
+        <div class="conteudo">
+           <h1 class="ofertas">Nossas ofertas mais populares</h1> 
+           <div class="btnCardapio">Ver Cardápio</div>
+            <img class="img_cardapio" src="imgs/cardápio.jpg" alt="Imagem de pizza">
+
+        </div>
+    </div>  
+
+
+    
+       <div class="horizontal">
+            <div class="box">
+                <img src="imgs/produtos.png" alt="ícone produtos">
+                <h3> Produtos </h3>
+                <p>Ingredientes frescos e de altíssima qualidade. </p>
+            </div>
+
+            <div class="box">
+                <img src="imgs/fast-time.png" alt="ícone Atendimento">
+                <h3> Atendimento </h3>
+                <p> Atendimento de qualidade e entrega com rapidez. </p>
+            </div>
+
+            <div class="box">
+                <img src="imgs/chef.png" alt="ícone chef">
+                <h3> Experiência </h3>
+                <p>Paixão em compartilhar a experiência e encantar os clientes com o paladar. </p>
+            </div>
+        </div>
+    </div>
+    </div> 
+
+
+    <div id="contato" class="contato">
+        <div class="contato-card">
+            <h1>Entrem em contato conosco </h1>
+            <ul>
+                <li><i data-feather="info"></i> Av. Campanella, 386 - São Paulo - SP, 08220-830</li>
+                <li><i data-feather="info"></i> pizzariafabulosa.com.br</li>
+                <li><i data-feather="info"></i> (11) 20482622</li>
+            </ul>
+        </div>
+        <div id="map"></div>
+    </div>
+
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="linha"></div>
+            <div class="horizontal">
+                <div class="esquerda">
+                    <img class="logo" src="imgs/logo.png" alt="Logo do pizzaria">
+                    <p>&copy; 2021 Pizzaria Fabulosa</p>
+                </div>
+                <div class="meio">
+                    <p>Design por</p>
+                    <p>Ellen Miranda</p>
+                </div>
+                <div class="direita">
+                    <p>Desenvolvido por</p>
+                    <p>Equipe Miranda Almeida</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        feather.replace();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = {
+                lat: -19.924108,
+                lng: -43.943470
+            };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+
+
+</body>
+
+</html>
+
+
+<script>
+    window.onscroll = function () {
+        fixarHeader();
+    }; //arrumar a barra fixa
+    var header = document.getElementById("header");
+    var bemVindo = document.getElementById("bemVindo");
+    var sticky = 100;
+
+    function fixarHeader() {
+        if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky")
+            bemVindo.style.marginTop = "250px";
+        } else {
+            header.classList.remove("sticky");
+            bemVindo.style.marginTop = "128px";
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+</script>
